@@ -5,7 +5,9 @@ import matplotlib.pyplot as plt
 plt.rcParams['font.family'] = 'Malgun Gothic'
 plt.rcParams['axes.unicode_minus'] = False
 
-path = r'C:\Users\gimnn\OneDrive\12_공부\코딩\2026_green_python\260227\csv\서울특별시_송파구_노인요양시설_현황.csv'
+import os
+
+path = os.path.join('csv', '서울특별시_송파구_노인요양시설_현황.csv')
 df = pd.read_csv(path, encoding='cp949')
 
 # %%
@@ -17,6 +19,7 @@ line = ax.plot(
     df['요양원 신고 수'],
     marker='o',
     linewidth=2,
+    color='#FF8C42',
     label='요양원 신고 수'
 )
 
@@ -24,7 +27,9 @@ line = ax.plot(
 bars = ax.bar(
     df.index,
     df['새로 지어진 시설 수'],
+    width=10,
     alpha=0.6,
+    color='#2F5597',
     label='새로 지어진 시설 수'
 )
 
