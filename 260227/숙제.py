@@ -9,16 +9,37 @@ path = r'C:\Users\gimnn\OneDrive\12_공부\코딩\2026_green_python\260227\csv\�
 df = pd.read_csv(path, encoding='cp949')
 
 # %%
-df = df.set_index('년월').T
-df.index = pd.to_datetime(df.index)
+fig, ax = plt.subplots(figsize=(12,6))
 
-df.plot(figsize=(12,6))
+# 선그래프 (요양원 신고 수)
+line = ax.plot(
+    df.index,
+    df['요양원 신고 수'],
+    marker='o',
+    linewidth=2,
+    label='요양원 신고 수'
+)
 
-plt.title('월별 요양시설 현황')
-plt.xlabel('년월')
-plt.ylabel('개수')
+# 막대그래프 (새로 지어진 시설 수)
+bars = ax.bar(
+    df.index,
+    df['새로 지어진 시설 수'],
+    alpha=0.6,
+    label='새로 지어진 시설 수'
+)
+
+# 제목 및 축 설정
+ax.set_title('월별 요양시설 현황')
+ax.set_xlabel('년월')
+ax.set_ylabel('개수')
+
 plt.xticks(rotation=45)
+
+# 범례 추가
+ax.legend()
+
 plt.tight_layout()
 plt.show()
+
 
 # %%
