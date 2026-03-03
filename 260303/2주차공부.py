@@ -1,7 +1,7 @@
 # %%
 import pandas as pd
 
-df = pd.read_csv('../src/csv/노인요양시설.csv',  encoding='cp949')
+df = pd.read_csv('src/csv/노인요양시설.csv',  encoding='cp949')
 # %%
 print(df)
 
