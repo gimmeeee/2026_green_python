@@ -21,6 +21,7 @@ condition = (df_t['신고수'] == 0) & (df_t['신축수'] == 0)
 # 2. 물결표(~)를 붙여서 '조건에 해당하지 않는' 행들만 골라 새로운 변수에 저장
 df_filtered = df_t[~condition].copy()
 
+#%%
 # 1. 필터링된 결과가 딱 1개인지 확인
 if len(df_filtered) == 1:
     # 해당 행의 '이름'을 가져와서 원본(df_t)에서의 '숫자 위치'를 찾음
@@ -34,12 +35,13 @@ if len(df_filtered) == 1:
     # 최종적으로 5개(혹은 그 근처)의 행을 가진 데이터프레임 생성
     df_context = df_t.iloc[start:end]
     
-    print(f"타겟 행 위치: {target_idx}, 추출된 범위: {start} ~ {end-1}")
+    print(f"타겟 행 위치: {target_idx}, \n 추출된 범위: {start} ~ {end-1}")
 else:
     # 0개이거나 2개 이상일 때는 다른 처리를 함
     df_context = df_filtered
 
-print(df_context, len(df_context))
+print(df_context)
+print("ROW:",len(df_context))
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
