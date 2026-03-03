@@ -41,7 +41,7 @@ else:
     df_context = df_filtered
 
 print(df_context)
-print("ROW:",len(df_context))
+print(f"구한 행의 개수는 {len(df_context)}입니다.")
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
