@@ -133,7 +133,11 @@ for i, v in enumerate(df_plot):
 plt.show()
 
 # %%
+import matplotlib.pyplot as plt
+from matplotlib import rc  # rc 함수 임포트
 
+# 한글 폰트 설정 (윈도우 기준)
+rc('font', family='Malgun Gothic')
 # 2. 시각화 설정_가로막대로 수정
 ax = df_plot.plot(kind='barh', 
                   color=['#3498db', '#e67e22'],  # 각각 다른 색상
