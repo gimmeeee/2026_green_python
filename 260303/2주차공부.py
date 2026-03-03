@@ -134,4 +134,30 @@ plt.show()
 
 # %%
 
+# 2. 시각화 설정_가로막대로 수정
+ax = df_plot.plot(kind='barh', 
+                  color=['#3498db', '#e67e22'],  # 각각 다른 색상
+                  width=0.8,                    # 막대 두께 (간격 조절)
+                  figsize=(6, 5))               # 그래프 크기 설정
+
+# 3. x축 세부 설정
+plt.xlim(0, max(df_plot.values) * 1.2)  # 막대 길이보다 약간 여유 있게 설정
+
+# x축 눈금 간격 설정 (예시: 0, 2, 5, 10)
+plt.xticks([0, 1, 2])
+
+# y축 라벨 이름 변경
+plt.yticks(ticks=[0, 1], labels=['신고수', '신축수'], rotation=0)
+
+# 4. 기타 스타일 정리
+plt.title(f"{df_filtered['년월'].iloc[0]} report", fontsize=14, pad=15)
+plt.yticks(rotation=0)  # y축 글자 똑바로 유지
+plt.grid(axis='x', linestyle='--', alpha=0.3)  # 보조선 x축에 추가
+
+# 막대 옆에 숫자 표시 (가로막대이므로 x, y 좌표 조정)
+for i, v in enumerate(df_plot):
+    ax.text(v + 0.1, i, str(int(v)), va='center', fontweight='bold')
+
+plt.show()
+
 # %%
