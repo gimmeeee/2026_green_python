@@ -10,6 +10,10 @@ import os
 path = os.path.join('csv', '서울특별시_송파구_노인요양시설_현황.csv')
 df = pd.read_csv(path, encoding='cp949')
 
+df = df.set_index('년월')
+df = df.T
+df.index = pd.to_datetime(df.index)
+
 # %%
 fig, ax = plt.subplots(figsize=(12,6))
 
